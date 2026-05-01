@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#323537",
+                    "surface-variant": "#323537",
+                    "primary-fixed": "#c9e6ff",
+                    "inverse-on-surface": "#2d3133",
+                    "surface-dim": "#101415",
+                    "on-tertiary-fixed-variant": "#3f465c",
+                    "on-tertiary-fixed": "#131b2e",
+                    "on-primary-fixed-variant": "#004c6e",
+                    "inverse-primary": "#006591",
+                    "on-secondary-fixed": "#102000",
+                    "on-secondary": "#1f3700",
+                    "error": "#ffb4ab",
+                    "tertiary": "#bec6e0",
+                    "tertiary-fixed": "#dae2fd",
+                    "surface-container-lowest": "#0b0f10",
+                    "on-secondary-container": "#2c4900",
+                    "on-tertiary": "#283044",
+                    "surface": "#101415",
+                    "surface-container-low": "#191c1e",
+                    "outline": "#88929b",
+                    "background": "#101415",
+                    "on-error-container": "#ffdad6",
+                    "surface-tint": "#89ceff",
+                    "tertiary-fixed-dim": "#bec6e0",
+                    "on-primary-fixed": "#001e2f",
+                    "primary-fixed-dim": "#89ceff",
+                    "on-surface": "#e0e3e5",
+                    "secondary-container": "#7ac100",
+                    "on-primary": "#00344d",
+                    "on-tertiary-container": "#2b3347",
+                    "inverse-surface": "#e0e3e5",
+                    "error-container": "#93000a",
+                    "surface-container": "#1d2022",
+                    "surface-container-high": "#272a2c",
+                    "secondary-fixed-dim": "#91db2a",
+                    "on-surface-variant": "#bec8d2",
+                    "surface-bright": "#363a3b",
+                    "secondary-fixed": "#acf847",
+                    "outline-variant": "#3e4850",
+                    "primary-container": "#0ea5e9",
+                    "on-secondary-fixed-variant": "#304f00",
+                    "on-background": "#e0e3e5",
+                    "on-primary-container": "#003751",
+                    "primary": "#89ceff",
+                    "tertiary-container": "#939bb3",
+                    "on-error": "#690005",
+                    "secondary": "#94de2d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xs": "0.5rem",
+                    "margin": "max(2rem, 5vw)",
+                    "md": "1.5rem",
+                    "sm": "1rem",
+                    "base": "4px",
+                    "lg": "2.5rem",
+                    "gutter": "24px",
+                    "xl": "4rem"
+            },
+            "fontFamily": {
+                    "code-sm": ["monospace"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-xl": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "label-md": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "code-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #020617;
+            color: #e0e3e5;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-hover:hover {
+            box-shadow: 0px 0px 20px rgba(14, 165, 233, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(14,165,233,0.1)]">
+<div class="max-w-[1280px] mx-auto flex items-center justify-between px-8 h-20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sky-500" data-icon="terminal">terminal</span>
+<span class="text-xl font-bold text-sky-500 tracking-tighter uppercase font-space-grotesk">ARCHITECT.DEV</span>
+</div>
+<div class="hidden md:flex items-center gap-8 font-label-md text-label-md">
+<a class="text-sky-500 border-b-2 border-sky-500 pb-1 font-space-grotesk tracking-tight" href="#">HOME</a>
+<a class="text-slate-400 hover:text-sky-400 transition-colors font-space-grotesk tracking-tight" href="#work">WORK</a>
+<a class="text-slate-400 hover:text-sky-400 transition-colors font-space-grotesk tracking-tight" href="#stack">STACK</a>
+<a class="text-slate-400 hover:text-sky-400 transition-colors font-space-grotesk tracking-tight" href="#about">ABOUT</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label-md text-label-md font-bold hover:translate-y-[-2px] active:scale-95 transition-all duration-200 glow-hover">
+                HIRE_ME
+            </button>
+</div>
+</nav>
+<main class="relative pt-20 overflow-hidden">
+<!-- Minimalist Technical Background -->
+<div class="absolute inset-0 -z-10 overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-sky-500/5 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary-container/5 blur-[120px]"></div>
+<!-- Grid Pattern -->
+<div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+</div>
+<!-- Hero Section -->
+<section class="max-w-[1280px] mx-auto px-8 pt-32 pb-24 grid md:grid-cols-12 gap-gutter items-center min-h-[707px]">
+<div class="md:col-span-7 space-y-lg">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-code-sm text-code-sm text-sky-400 uppercase tracking-widest">DISPONIBLE POUR NOUVEAUX PROJETS</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-white">
+                    Développeur Web <br/>
+<span class="text-primary tracking-tighter">Full-Stack</span>
+</h1>
+<p class="font-body-lg text-body-lg text-slate-400 max-w-xl">
+                    Je transforme vos idées en expériences numériques performantes. Spécialisé dans l'architecture de solutions scalables et d'interfaces haute-précision.
+                </p>
+<div class="flex flex-wrap gap-md pt-md">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 font-label-md text-label-md font-bold uppercase tracking-widest transition-all duration-300 hover:translate-y-[-2px] glow-hover">
+                        Voir mes projets
+                    </button>
+<button class="border border-sky-500/30 text-sky-500 px-8 py-4 font-label-md text-label-md font-bold uppercase tracking-widest transition-all duration-300 hover:bg-white/5 hover:border-sky-500">
+                        Consulter CV
+                    </button>
+</div>
+<!-- Metrics -->
+<div class="grid grid-cols-3 gap-md pt-xl border-t border-white/5">
+<div>
+<div class="font-headline-md text-headline-md text-white">05+</div>
+<div class="font-label-md text-label-md text-slate-500 uppercase tracking-tighter">Années d'Expérience</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-white">40+</div>
+<div class="font-label-md text-label-md text-slate-500 uppercase tracking-tighter">Projets Livrés</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-white">99%</div>
+<div class="font-label-md text-label-md text-slate-500 uppercase tracking-tighter">Code Coverage</div>
+</div>
+</div>
+</div>
+<!-- Terminal Component -->
+<div class="md:col-span-5 hidden md:block">
+<div class="glass-card p-0 overflow-hidden shadow-2xl">
+<div class="bg-white/5 px-4 py-3 flex items-center gap-2 border-b border-white/10">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+<div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+<div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+</div>
+<span class="text-xs font-code-sm text-slate-500 ml-2">architect.ts — bio</span>
+</div>
+<div class="p-6 font-code-sm text-code-sm leading-relaxed">
+<div class="flex gap-4">
+<span class="text-slate-600">01</span>
+<span class="text-sky-400">const</span> <span class="text-white">developer</span> = {
+                        </div>
+<div class="flex gap-4">
+<span class="text-slate-600">02</span>
+<span class="pl-4 text-white">name: <span class="text-secondary">"Architect"</span>,</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">03</span>
+<span class="pl-4 text-white">focus: <span class="text-secondary">"User Experience"</span>,</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">04</span>
+<span class="pl-4 text-white">stack: [</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">05</span>
+<span class="pl-8 text-secondary">"React"</span><span class="text-white">,</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">06</span>
+<span class="pl-8 text-secondary">"TypeScript"</span><span class="text-white">,</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">07</span>
+<span class="pl-8 text-secondary">"Node.js"</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">08</span>
+<span class="pl-4 text-white">],</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">09</span>
+<span class="pl-4 text-white">philosophy: <span class="text-secondary">"Code is art."</span></span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">10</span>
+<span class="text-white">};</span>
+</div>
+<div class="mt-4 flex gap-4">
+<span class="text-slate-600">11</span>
+<span class="text-sky-400">developer</span><span class="text-white">.build(</span><span class="text-secondary">"your_next_idea"</span><span class="text-white">);</span>
+</div>
+<div class="mt-2 flex gap-4">
+<span class="text-slate-600">12</span>
+<span class="w-2 h-4 bg-sky-500 animate-pulse inline-block"></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- À propos de moi -->
+<section class="max-w-[1280px] mx-auto px-8 py-24 border-t border-white/5" id="about">
+<div class="grid md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 relative group">
+<div class="absolute inset-0 bg-sky-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="glass-card aspect-square rounded-xl overflow-hidden relative">
+<img alt="Workstation" class="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-2zDPjt274miru8MeIF226YpYlWqNjrLeTKcizyViNaH1IHELH-rLD7iwG9pmyYhEP-jZtaAkGYrJKjkKb3hcqu1E1YhG1UwiIDfXKmVYJ1oV3xbnGqK-U9cDUNiZmTlwqXbcHZ1yVQ4rCiWwrgE9EurNS34mqHOYfpjA19q8jxp52-7G3cY07a6zKjNzPx72lj4HYChxU00LvodSbMwokzvPgl61nlkH1lCmay0YJW6qBlkt7zlcI_sue70qRe4cN6YzJpcQsek"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
+</div>
+<div class="absolute -bottom-6 -right-6 p-6 glass-card rounded-xl border-sky-500/30">
+<span class="font-code-sm text-sky-500">&lt;profile_img /&gt;</span>
+</div>
+</div>
+<div class="md:col-span-7 space-y-md">
+<h2 class="font-headline-lg text-headline-lg text-white">À propos de moi</h2>
+<div class="space-y-sm font-body-lg text-slate-400">
+<p>Passionné par l'intersection entre le design et l'ingénierie, j'aborde chaque projet comme une œuvre d'architecture numérique. Ma philosophie repose sur trois piliers : la performance brute, l'accessibilité universelle et l'esthétique minimaliste.</p>
+<p>Basé à Paris mais travaillant à l'échelle mondiale, je collabore avec des startups et des entreprises technologiques pour concevoir des systèmes qui ne se contentent pas de fonctionner, mais qui redéfinissent les standards de leur industrie.</p>
+</div>
+<div class="pt-sm">
+<p class="font-code-sm text-sky-500">// Thinking in components. Solving for scale.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Compétences Techniques -->
+<section class="max-w-[1280px] mx-auto px-8 py-24" id="stack">
+<div class="mb-lg space-y-2">
+<h2 class="font-headline-lg text-headline-lg text-white">Compétences Techniques</h2>
+<p class="font-body-md text-slate-500">Outils et technologies que j'utilise pour bâtir l'avenir.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+<div class="glass-card p-6 flex flex-col items-center gap-4 hover:border-sky-500/50 transition-colors group">
+<span class="material-symbols-outlined text-4xl text-slate-500 group-hover:text-sky-500 transition-colors">javascript</span>
+<span class="font-label-md text-slate-400 uppercase tracking-widest text-[10px]">JavaScript</span>
+</div>
+<div class="glass-card p-6 flex flex-col items-center gap-4 hover:border-sky-500/50 transition-colors group">
+<span class="material-symbols-outlined text-4xl text-slate-500 group-hover:text-sky-500 transition-colors">code</span>
+<span class="font-label-md text-slate-400 uppercase tracking-widest text-[10px]">TypeScript</span>
+</div>
+<div class="glass-card p-6 flex flex-col items-center gap-4 hover:border-sky-500/50 transition-colors group">
+<span class="material-symbols-outlined text-4xl text-slate-500 group-hover:text-sky-500 transition-colors">layers</span>
+<span class="font-label-md text-slate-400 uppercase tracking-widest text-[10px]">React / Next.js</span>
+</div>
+<div class="glass-card p-6 flex flex-col items-center gap-4 hover:border-sky-500/50 transition-colors group">
+<span class="material-symbols-outlined text-4xl text-slate-500 group-hover:text-sky-500 transition-colors">storage</span>
+<span class="font-label-md text-slate-400 uppercase tracking-widest text-[10px]">Node / Express</span>
+</div>
+<div class="glass-card p-6 flex flex-col items-center gap-4 hover:border-sky-500/50 transition-colors group">
+<span class="material-symbols-outlined text-4xl text-slate-500 group-hover:text-sky-500 transition-colors">cloud</span>
+<span class="font-label-md text-slate-400 uppercase tracking-widest text-[10px]">AWS / Docker</span>
+</div>
+<div class="glass-card p-6 flex flex-col items-center gap-4 hover:border-sky-500/50 transition-colors group">
+<span class="material-symbols-outlined text-4xl text-slate-500 group-hover:text-sky-500 transition-colors">database</span>
+<span class="font-label-md text-slate-400 uppercase tracking-widest text-[10px]">PostgreSQL</span>
+</div>
+</div>
+</section>
+<!-- Featured Projects Grid (Asymmetric Bento) -->
+<section class="max-w-[1280px] mx-auto px-8 pb-xl" id="work">
+<div class="flex justify-between items-end mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-white">Travaux Sélectionnés</h2>
+<a class="font-label-md text-label-md text-sky-400 flex items-center gap-2 hover:gap-4 transition-all" href="#">
+                    VOIR TOUT <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Large Featured Card -->
+<div class="md:col-span-8 group relative aspect-video md:aspect-auto md:h-[500px] overflow-hidden glass-card rounded-xl">
+<img alt="Cyberpunk Dashboard UI" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700" data-alt="A highly complex and futuristic software dashboard interface displayed on a large screen in a dark, tech-oriented studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCp7FNYlfYcBv8L0t9rGcUzCrNojN3srYBIJzaHyTdzG3IoGPlE2fM45kN4Tjqt6Qd2DlMj9MA2OaeF_jpMYLmsRv8F3uHLwIjk6ocXpEqPuxxdlgW_KOSEU050CutVF6txjgE5FcqyfppA1s-A5iLmG6un7lQaRQsYtlb_A1iacm-ns-42jbTPNdEvNDk8rNI4EpOkhdniIuw9X2MPYyql9rMzwEnxW4fjVfQAzgjJjdz0zpqCdpnYNyP6-ltyHVc1EvKH4Vfzcw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent p-lg flex flex-col justify-end">
+<div class="space-y-sm">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-slate-800 text-sky-400 text-[10px] font-bold tracking-widest uppercase">Fintech</span>
+<span class="px-2 py-1 bg-slate-800 text-sky-400 text-[10px] font-bold tracking-widest uppercase">Web3</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white">Quantum Finance Platform</h3>
+<p class="font-body-md text-slate-400 max-w-md">Architecture d'un dashboard de trading temps-réel avec intégration blockchain.</p>
+</div>
+</div>
+</div>
+<!-- Side Column Cards -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<div class="flex-1 group relative overflow-hidden glass-card rounded-xl min-h-[234px]">
+<img alt="Mobile App Concept" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnm4BN-LhRdHG8QPRMEMw-gfb2zEoIPLCcdoJRlumXCqEweEpGvd9dWmIAlUs-kpWlnMw6PdW43ve-G1NAoJozNrC_exOdbqo3Qt-_VyO11-_Q68OJBiDH_z7IyiX02dW518sapS8SZ100ypurgPBdWAdXsTL9ophyyDWJYt76EJBXkLJvXmgPnu96a4wJ_-zbt8ToSNvkz3H03R5eIRUqW3FUNmJGY1G5tri_9KUcjnEm0Fij8FEpTs0nkEph9PZD_nm1jsXO_Zs"/>
+<div class="absolute inset-0 bg-slate-950/60 p-md flex flex-col justify-end">
+<h4 class="font-headline-md text-[24px] text-white">Nova App</h4>
+<div class="flex gap-2 mt-2">
+<span class="text-[10px] font-bold text-sky-500 font-space-grotesk uppercase">React Native</span>
+</div>
+</div>
+</div>
+<div class="flex-1 group relative overflow-hidden glass-card rounded-xl min-h-[234px]">
+<img alt="Cloud Architecture" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMhwuiJ7j98cf_cVVpLkbJwjqOF8mFaTNOEZgKZ2qN6hvvamESklGHHtl9zZ-GDigaa5uyc_hU7CbFcpYrf8XC6oSo3LOrjJpbQnabROvvA-o09ymj1oN0EN5A6p4ZJ_n6YOwX3NwYwObrb2RBvJKRVfiAtkj9cpqrutJ6Rs1P1zU4X97i38hkPxWtBeOLC3oaA48__0iAFyBfPNUAM0VdV8yJvIYjH_wJMnk_Xhmb3XCPmyt7hXqGJjMl32IDjNfsdz6SQ_OZoEo"/>
+<div class="absolute inset-0 bg-slate-950/60 p-md flex flex-col justify-end">
+<h4 class="font-headline-md text-[24px] text-white">Cloud Master</h4>
+<div class="flex gap-2 mt-2">
+<span class="text-[10px] font-bold text-sky-500 font-space-grotesk uppercase">AWS // K8S</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projets Récents (Gallery Section) -->
+<section class="max-w-[1280px] mx-auto px-8 py-24 border-t border-white/5">
+<div class="mb-lg flex items-end justify-between">
+<div class="space-y-2">
+<h2 class="font-headline-lg text-headline-lg text-white">Projets Récents</h2>
+<p class="font-body-md text-slate-500">Dernières implémentations en production.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="group">
+<div class="glass-card aspect-[4/3] rounded-xl overflow-hidden mb-4 relative">
+<img alt="E-commerce Engine" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60 grayscale hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf48_bglzLKpCCgGWY4KPsbKaQ99LHDhf4LNi3ut5nHCp0ZUnbAdZJxRn-8FioWDILH-NzhYLDfhySvXKnLMlRP-oPxoWkBHLjPPlx1n_0HIRq_1pf59R5-CDwp6SykOij-NwbdB8Lv9NT0m11DGMfQOJT7ds3YacCyoCnwzeGJyW9W2mysjlVnZOvtgQAO4gQ2wOtvEFMeXkJIjNDfsK57d5yM8bKNBCnR6WIxbH0gxdUf7zu81fbabIer9oAISrEm-z3wTpj7gI"/>
+<div class="absolute top-4 right-4 px-2 py-1 bg-sky-500/10 backdrop-blur-md border border-sky-500/30 text-sky-500 text-[10px] font-bold tracking-widest uppercase">2024</div>
+</div>
+<h4 class="font-headline-md text-[20px] text-white group-hover:text-sky-500 transition-colors">Core Commerce Engine</h4>
+<p class="font-body-md text-slate-500 mt-2">Moteur d'e-commerce headless ultra-rapide optimisé pour le SEO.</p>
+</div>
+<div class="group">
+<div class="glass-card aspect-[4/3] rounded-xl overflow-hidden mb-4 relative">
+<img alt="Analytics Dashboard" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60 grayscale hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC3PZJiRo1yvCnN7Ts-3-PVweettuIpXyvR14pJQNBh7YXcFWMjUvOgni4JWlQuD3bjiKuCxg5eKVO4d1Njxvs2q9ih0KunTYqowfzRIkqr1fZ9A8hcDkngjN816sGeQiw0hlAfOsbjSslKLxKKPNv0hySz4KkhtJisvpoYM52Ac1sZEciqoPfN2UUtAThW0jkAnQGxWA2hmMiQpk9H3W9lytt5hzoVEuTB0ldR5dMZQewRJ7MG5r0iFzafGpzbbLceCA1nraSN5s"/>
+<div class="absolute top-4 right-4 px-2 py-1 bg-sky-500/10 backdrop-blur-md border border-sky-500/30 text-sky-500 text-[10px] font-bold tracking-widest uppercase">2023</div>
+</div>
+<h4 class="font-headline-md text-[20px] text-white group-hover:text-sky-500 transition-colors">Data Vision SDK</h4>
+<p class="font-body-md text-slate-500 mt-2">SDK de visualisation de données complexes pour applications industrielles.</p>
+</div>
+<div class="group">
+<div class="glass-card aspect-[4/3] rounded-xl overflow-hidden mb-4 relative">
+<img alt="Neural Interface" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60 grayscale hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_0ugUHF7wUMBC7zVpG1EEuHc9GsmSbI6gPPdewE1NOz8Ke8C-CMZuVJ61a7XLCHVm3Xt0wUGbI-IqtqYrQd6E_t6QyOPs9XNpf9_MyLMx3GreDdtbFAfQPkS-FSDLM4tzPMURSSqkUfht6ckIzJ3ylVywtK4qgj25gzQ_XiZmkpioc1maebiT5_33tpFrw8niAak4y0xN8CAynSib5AG_6tzqWA23j7TV9sDrGRLHvHLcysPo2U8OQgwWD0ja0WMYOPhPhQ4MwVw"/>
+<div class="absolute top-4 right-4 px-2 py-1 bg-sky-500/10 backdrop-blur-md border border-sky-500/30 text-sky-500 text-[10px] font-bold tracking-widest uppercase">2023</div>
+</div>
+<h4 class="font-headline-md text-[20px] text-white group-hover:text-sky-500 transition-colors">Nexus AI Chat</h4>
+<p class="font-body-md text-slate-500 mt-2">Interface conversationnelle intelligente avec streaming de données temps-réel.</p>
+</div>
+</div>
+</section>
+<!-- Contactez-moi Section -->
+<section class="max-w-[1280px] mx-auto px-8 py-24 border-t border-white/5 bg-sky-500/[0.02]">
+<div class="text-center space-y-md max-w-2xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-white">Parlons de votre prochain projet</h2>
+<p class="font-body-lg text-slate-400">Besoin d'un expert pour concrétiser votre vision technique ? Je suis disponible pour des missions de consulting et de développement.</p>
+<div class="pt-sm">
+<a class="inline-flex items-center gap-3 bg-primary-container text-on-primary-container px-10 py-5 font-label-md text-label-md font-bold uppercase tracking-widest transition-all duration-300 hover:translate-y-[-2px] glow-hover" href="mailto:contact@architect.dev">
+                ME CONTACTER
+                <span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Contactez-moi Footer -->
+<footer class="bg-slate-950 border-t border-white/10">
+<div class="max-w-[1280px] mx-auto py-16 px-8">
+<div class="grid md:grid-cols-4 gap-12 mb-12">
+<div class="md:col-span-1 space-y-4">
+<span class="text-sky-500 font-black font-space-grotesk text-xl">ARCHITECT.DEV</span>
+<p class="font-body-md text-slate-500 text-sm">Développeur Full-Stack spécialisé dans la création d'interfaces haute-performance et d'architectures robustes.</p>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-md text-white uppercase tracking-widest text-xs">Navigation</h5>
+<ul class="space-y-2">
+<li><a class="text-slate-500 hover:text-sky-500 transition-colors font-space-grotesk text-xs uppercase tracking-widest" href="#">Home</a></li>
+<li><a class="text-slate-500 hover:text-sky-500 transition-colors font-space-grotesk text-xs uppercase tracking-widest" href="#work">Work</a></li>
+<li><a class="text-slate-500 hover:text-sky-500 transition-colors font-space-grotesk text-xs uppercase tracking-widest" href="#stack">Stack</a></li>
+<li><a class="text-slate-500 hover:text-sky-500 transition-colors font-space-grotesk text-xs uppercase tracking-widest" href="#about">About</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-md text-white uppercase tracking-widest text-xs">Social</h5>
+<ul class="space-y-2">
+<li><a class="text-slate-500 hover:text-sky-500 transition-colors font-space-grotesk text-xs uppercase tracking-widest" href="#">LinkedIn</a></li>
+<li><a class="text-slate-500 hover:text-sky-500 transition-colors font-space-grotesk text-xs uppercase tracking-widest" href="#">GitHub</a></li>
+<li><a class="text-slate-500 hover:text-sky-500 transition-colors font-space-grotesk text-xs uppercase tracking-widest" href="#">Twitter</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-md text-white uppercase tracking-widest text-xs">Contact</h5>
+<ul class="space-y-2">
+<li><span class="text-slate-500 font-space-grotesk text-xs uppercase tracking-widest">Paris, France</span></li>
+<li><a class="text-sky-500 hover:underline font-space-grotesk text-xs uppercase tracking-widest" href="mailto:contact@architect.dev">contact@architect.dev</a></li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 gap-8">
+<p class="font-space-grotesk text-xs uppercase tracking-[0.2em] text-slate-500">
+            © 2024 ARCHITECT.DEV // PRECISION IN CODE
+        </p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-sky-500/50 transition-colors group">
+<span class="material-symbols-outlined text-sm text-slate-500 group-hover:text-sky-500" data-icon="terminal">terminal</span>
+</div>
+<div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-sky-500/50 transition-colors group">
+<span class="material-symbols-outlined text-sm text-slate-500 group-hover:text-sky-500" data-icon="mail">mail</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
